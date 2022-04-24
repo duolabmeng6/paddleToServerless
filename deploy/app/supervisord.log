@@ -1,0 +1,10 @@
+2022-04-24 04:38:38,736 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-04-24 04:38:38,740 INFO supervisord started with pid 1171
+2022-04-24 04:38:39,745 INFO spawned: 's1' with pid 1174
+2022-04-24 04:38:39,761 INFO spawned: 's2' with pid 1175
+2022-04-24 04:38:41,079 INFO success: s1 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-04-24 04:38:41,080 INFO success: s2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-04-24 04:38:41,080 WARN received SIGINT indicating exit request
+2022-04-24 04:38:41,081 INFO waiting for s1, s2 to die
+2022-04-24 04:38:41,083 INFO stopped: s2 (terminated by SIGTERM)
+2022-04-24 04:38:41,182 INFO stopped: s1 (terminated by SIGTERM)

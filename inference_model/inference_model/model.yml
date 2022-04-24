@@ -1,0 +1,53 @@
+Model: PicoDet
+Transforms:
+- Resize:
+    interp: CUBIC
+    keep_ratio: false
+    target_size: !!python/tuple
+    - 640
+    - 640
+- Normalize:
+    is_scale: true
+    max_val:
+    - 255.0
+    - 255.0
+    - 255.0
+    mean:
+    - 0.485
+    - 0.456
+    - 0.406
+    min_val:
+    - 0
+    - 0
+    - 0
+    std:
+    - 0.229
+    - 0.224
+    - 0.225
+_Attributes:
+  eval_metrics:
+    bbox_map: 82.47416459576472
+  fixed_input_shape:
+  - -1
+  - 3
+  - 640
+  - 640
+  labels:
+  - leconte
+  - boerner
+  - armandi
+  - linnaeus
+  - coleoptera
+  - acuminatus
+  model_type: detector
+  num_classes: 6
+_init_params:
+  backbone: ESNet_m
+  nms_iou_threshold: 0.6
+  nms_keep_topk: 100
+  nms_score_threshold: 0.025
+  nms_topk: 1000
+  num_classes: 6
+completed_epochs: 0
+status: Infer
+version: 2.1.0

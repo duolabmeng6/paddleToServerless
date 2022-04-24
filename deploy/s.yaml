@@ -1,0 +1,46 @@
+edition: 1.0.0
+name: kunchongjiance
+access: default
+
+services:
+  kunchongjiance:
+    component: fc
+    props:
+      region: cn-shenzhen
+      service:
+        name: kunchongjiance
+        description: '基于 Serverless 架构部署昆虫检测模型'
+        internetAccess: true
+        role:
+          name: qianfeng-fc-deploy-role
+          policies:
+            - AliyunContainerRegistryReadOnlyAccess
+      function:
+        name: kunchongjiance
+        description: '基于 Serverless 架构部署昆虫检测模型'
+        runtime: custom-container
+        memorySize: 2048
+        caPort: 9000
+        codeUri: ./
+        timeout: 60
+        customContainerConfig:
+          image: registry-vpc-shenzhen.aliyuncs.com/duolabmeng/kunchongjiance:1.0
+          command: '["sh","/app/start.sh"]'
+        environmentVariables:
+          testEnv: true
+      triggers:
+        - name: httpTrigger
+          type: http
+          config:
+            authType: anonymous
+            methods:
+              - GET
+              - POST
+              - PUT
+      customDomains:
+        - domainName: auto
+          protocol: HTTP
+          routeConfigs:
+            - path: /*
+              serviceName: kunchongjiance
+              functionName: kunchongjiance

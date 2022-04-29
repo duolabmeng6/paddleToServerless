@@ -1,0 +1,1 @@
+paddle2onnx --model_dir C:\Users\csuil\paddlex_workspace\P0013-T0021_export_model\inference_model\inference_model  --model_filename model.pdmodel  --params_filename model.pdiparams --save_file onnx_file --opset_version 10 --enable_onnx_checker True
